@@ -29,9 +29,8 @@ def check_type(data_type, el):
         elif data_type == 'str':
             el = str(el)  # No conversion needed for strings
         elif data_type == 'bool':
-            user_choice = input("Enter a boolean value (True/False): ")
-            if user_choice.capitalize() in ('True', 'False'):
-                el = bool(user_choice)
+            if el.capitalize() in ('True', 'False'):
+                el = bool(el)
             else:
                 el = bool(input("Invalid input. Enter a boolean value (True/False):"))
     else:
@@ -86,6 +85,37 @@ def linsert(lst):
         if input("Would you like to try again insertion? (y/n): ").lower() == 'y':
             linsert(lst)
 
+
+def lappend(lst):
+    """Inserts an element at the end of the list. Handles almost all kinds of data types for 'el'
+    (int, float, str, bool, list, tuple, set, dict)
+    based on user-selected type and provides informative error messages.
+    Args:
+        lst: The list to modify.
+    Returns:
+        lst with appended el
+    Raises:
+        ValueError: If the provided type_el is invalid, if the index which user entered is not int.
+        TypeError: If the user-selected type is invalid or conversion fails.
+    """
+    try:
+        type_el = input("Select type of value to insert: int, float, str, bool, list, tuple, set, dict: ").lower()
+        # Validate position (integer and within range)
+        el = input("Enter a value to be inserted: ")
+
+        # Check the user choice and convert
+        el = check_type(type_el, el)
+
+        # Insert or append the element into the list
+        lst.append(el)
+        print("Element appended successfully!")
+        return lst
+
+    except (TypeError, ValueError) as e:
+        print("Error:", e)  # Handle various input errors
+        # Recursion for retrying
+        if input("Would you like to try again insertion? (y/n): ").lower() == 'y':
+            lappend(lst)
 
 def display_list_menu():
     print("\nChoose a list operation:")
