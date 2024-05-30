@@ -1,3 +1,41 @@
+def check_type(data_type, el):
+    """
+    Checks the type of the provided element (`el`) against the specified data type (`type_el`).
+    Args:
+        data_type (str): The expected data type (e.g., 'int', 'float', 'str', 'bool').
+        el: The element to be checked.
+    Returns:
+        The converted element if the type matches or raise error
+    Raises:
+        TypeError: If the data type is not valid or if the element cannot be converted to the specified type.
+    """
+
+    if data_type not in ('int', 'float', 'str', 'bool'):
+        raise ValueError(
+            "Invalid type selection. Please choose from int, float, str, bool")
+    if data_type == 'int':
+        try:
+            el = int(el)
+        except ValueError:
+            raise TypeError("Invalid input. Please enter a whole number.")
+    elif data_type == 'float':
+        try:
+            el = float(el)
+        except ValueError:
+            raise TypeError("Invalid input. Please enter a floating-point value.")
+    elif data_type == 'str':
+        el = str(el)  # No conversion needed for strings
+    elif data_type == 'bool':
+        user_choice = input("Enter a boolean value (True/False) or use an existing bool variable: ").lower()
+        if user_choice in ('true', 'false'):
+            el = bool(user_choice)
+        elif user_choice is not None and type(user_choice) is bool:
+            el = user_choice
+        else:
+            el = bool(input("Invalid input. Enter a boolean value (True/False):"))
+
+    return el
+
 def linsert(lst):
     """Inserts an element at the position by user choice in the list.
     Handles almost all kindd of data types for 'el' (int, float, str, bool, list, tuple, set, dict)
@@ -18,7 +56,7 @@ def linsert(lst):
         # Convert to lowercase for matching
         type_el = input("Select type of value to insert: int, float, str, bool, list, tuple, set, dict): ").lower()
         # Validate position (integer and within range)
-        el = None
+        el = input("Enter a value to be inserted: ")
         try:
             position = int(position_str)
             if position >= len(lst):
@@ -27,30 +65,10 @@ def linsert(lst):
         except ValueError:
             raise ValueError("Invalid index. Please enter a number.")
         # check the user choice
-        if type_el not in ('int', 'float', 'str', 'bool', 'list', 'tuple', 'set', 'dict'):
-            raise ValueError(
-                "Invalid type selection. Please choose from int, float, str, bool, list, tuple, set, or dict.")
-        # convert element based on user-selected type
-        if type_el == 'int':
-            el = int(input("Please enter a whole number: "))
-        elif type_el == 'float':
-            el = float(input("Enter a floating-point value: "))
-            el = float(el)
-        elif type_el == 'str':
-            el = str(input("Enter a string value: "))
-            el = str(el)
-        elif type_el == 'bool':
-            user_choice = input("Enter a boolean value (True/False) or use an bool variable: ").lower()
-            if user_choice in ('true', 'false'):
-                el = bool(user_choice)
-            # check if user_choice is defined as a boolean
-            elif user_choice is not None and type(user_choice) is bool:  # Check if user_choice is defined as a boolean
-                el = user_choice
-            else:
-                # if neither user input nor rain is available, prompt again for boolean value
-                el = bool(input("Invalid input. Enter a boolean value (True/False):"))
+        if type_el in ('int', 'float', 'bool'):
+            el = check_type(type_el, el)
         elif type_el in ('list', 'tuple', 'set', 'dict'):
-            el = input(f"Enter the existing {type_el} variable variable (my_listm, my_dict ....): ")
+            el = input(f"Enter the existing {type_el} variable (my_listm, my_dict ....): ")
             # check for list, tuple, set or tuple syntax
             if el in ('[', '(', '{', '}', ')', ']'):
                 raise TypeError(f"Cannot directly insert {type_el} . Please use an existing {type_el} variable.")
