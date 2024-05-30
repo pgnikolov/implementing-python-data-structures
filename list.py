@@ -117,6 +117,39 @@ def lappend(lst):
         if input("Would you like to try again insertion? (y/n): ").lower() == 'y':
             lappend(lst)
 
+
+def lextend(lst):
+    """Extends the list with elements from the provided iterable.
+    Handles iterables: lists, tuples, strings, dict.
+    Args:
+        lst: The list to modify.
+    Returns:
+        lst with extended elements
+    Raises:
+        TypeError: If the provided argument is not an iterable.
+    """
+    try:
+        # Get the iterable to extend from
+        type_el = input("Select type of value to insert: list, tuple, set, dict: ").lower()
+        if type_el == "dict":
+            print("Only the keys of your dictionary will be added to the list")
+        el = input("Enter a value to be inserted: ")
+
+        # Check if it's an iterable
+        el = check_type(type_el, el)
+
+        # Extend the list with the iterable
+        lst.extend(el)
+        print("List extended successfully!")
+        return lst
+
+    except TypeError as e:
+        print("Error:", e)  # Handle type errors
+        # Recursion for retrying
+        if input("Would you like to try again extension? (y/n): ").lower() == 'y':
+            lextend(lst)
+
+
 def display_list_menu():
     print("\nChoose a list operation:")
     print("1. Append")
