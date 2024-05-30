@@ -21,7 +21,8 @@ This Python code provides a comprehensive set of functions for manipulating list
 Key Features:
 
 - Type Validation: Ensures that inserted elements match the user-specified data type using the check_type function. 
-- Error Handling: Provides informative error messages for various input errors, including invalid index, invalid type selection, and conversion failures.User - - - Input: Interactively prompts the user for the type and value to insert or modify.
+- Error Handling: Provides informative error messages for various input errors, including invalid index, invalid type selection, and conversion failures.
+- User Input: Interactively prompts the user for the type and value to insert or modify.
 - Recursion: Offers the option to retry operations if errors occur.
 
 Supported List Operations:
