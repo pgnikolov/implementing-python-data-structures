@@ -10,7 +10,7 @@ def check_type(data_type, el):
         TypeError: If the data type is not valid or if the element cannot be converted to the specified type.
     """
 
-    if data_type not in ('int', 'float', 'str', 'bool'):
+    if data_type not in ('int', 'float', 'bool'):
         raise ValueError(
             "Invalid type selection. Please choose from int, float, str, bool")
     if data_type == 'int':
@@ -23,8 +23,6 @@ def check_type(data_type, el):
             el = float(el)
         except ValueError:
             raise TypeError("Invalid input. Please enter a floating-point value.")
-    elif data_type == 'str':
-        el = str(el)  # No conversion needed for strings
     elif data_type == 'bool':
         user_choice = input("Enter a boolean value (True/False) or use an existing bool variable: ").lower()
         if user_choice in ('true', 'false'):
