@@ -34,6 +34,7 @@ def check_type(data_type, el):
 
     return el
 
+
 def linsert(lst):
     """Inserts an element at the position by user choice in the list.
     Handles almost all kindd of data types for 'el' (int, float, str, bool, list, tuple, set, dict)
