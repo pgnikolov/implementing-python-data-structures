@@ -14,3 +14,26 @@ The functions are designed to be clear, concise, and efficient.
 
 ### 1. List
 
+######List Manipulation with Type Validation and Error Handling
+
+This Python code provides a comprehensive set of functions for manipulating lists, offering robust data type handling and informative error messages.
+
+Key Features:
+
+Type Validation: Ensures that inserted elements match the user-specified data type using the check_type function.
+Error Handling: Provides informative error messages for various input errors, including invalid index, invalid type selection, and conversion failures.
+User Input: Interactively prompts the user for the type and value to insert or modify.
+Recursion: Offers the option to retry operations if errors occur.
+Supported List Operations:
+
+Insertion:
+linsert(lst): Inserts an element at a specified position.
+Appending:
+lappend(lst): Adds an element to the end of the list.
+Extension:
+lextend(lst): Extends the list with elements from another iterable (list, tuple, string, dict).
+Additional List Operations:
+display_list_menu(): Displays a menu of common list operations.
+(To be implemented) Functions for removing, popping, clearing, finding indices, counting elements, sorting, reversing, and copying lists.
+
+
