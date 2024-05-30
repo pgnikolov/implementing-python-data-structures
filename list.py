@@ -2,7 +2,7 @@ def check_type(data_type, el):
     """
     Checks the type of the provided element (`el`) against the specified data type (`type_el`).
     Args:
-        data_type (str): The expected data type (e.g., 'int', 'float', 'str', 'bool').
+        data_type (str): The expected data type (int, float, str, bool, list, tuple, set, dict).
         el: The element to be checked.
     Returns:
         The converted element if the type matches or raise error
@@ -10,7 +10,7 @@ def check_type(data_type, el):
         TypeError: If the data type is not valid or if the element cannot be converted to the specified type.
     """
 
-    if data_type not in ('int', 'float', 'bool'):
+    if data_type not in ('int', 'float', 'str', 'bool', 'list', 'tuple', 'set', 'dict'):
         raise ValueError(
             "Invalid type selection. Please choose from int, float, str, bool")
     if data_type == 'int':
@@ -23,21 +23,26 @@ def check_type(data_type, el):
             el = float(el)
         except ValueError:
             raise TypeError("Invalid input. Please enter a floating-point value.")
+    elif data_type == 'str':
+        el = str(el)  # No conversion needed for strings
     elif data_type == 'bool':
-        user_choice = input("Enter a boolean value (True/False) or use an existing bool variable: ").lower()
-        if user_choice in ('true', 'false'):
+        user_choice = input("Enter a boolean value (True/False): ")
+        if user_choice.capitalize() in ('True', 'False'):
             el = bool(user_choice)
-        elif user_choice is not None and type(user_choice) is bool:
-            el = user_choice
         else:
             el = bool(input("Invalid input. Enter a boolean value (True/False):"))
+    elif data_type in ('list', 'tuple', 'set', 'dict'):
+        # Check if el is an instance of chosen data type
+        if not isinstance(el, eval(data_type)):
+            raise TypeError(
+                f"Invalid input for {data_type}. Enter a valid {data_type} variable.")
 
     return el
 
 
-def linsert(lst):
+def linsert_simple(lst):
     """Inserts an element at the position by user choice in the list.
-    Handles almost all kindd of data types for 'el' (int, float, str, bool, list, tuple, set, dict)
+    Handles (int, float, str, bool) data types for 'el'
     based on user-selected type and provides informative error messages.
     Args:
         lst: The list to modify.
@@ -48,12 +53,11 @@ def linsert(lst):
     Returns:
         lst with inserted el
     """
-
     try:
         # Get user input for position and element type
         position_str = input(f"Enter an index between (0 and {len(lst) - 1}): ")
         # Convert to lowercase for matching
-        type_el = input("Select type of value to insert: int, float, str, bool, list, tuple, set, dict): ").lower()
+        type_el = input("Select type of value to insert: int, float, bool: ").lower()
         # Validate position (integer and within range)
         el = input("Enter a value to be inserted: ")
         try:
@@ -63,23 +67,66 @@ def linsert(lst):
                       "Your value will be added at the end of your list")
         except ValueError:
             raise ValueError("Invalid index. Please enter a number.")
-        # check the user choice
-        if type_el in ('int', 'float', 'bool'):
-            el = check_type(type_el, el)
-        elif type_el in ('list', 'tuple', 'set', 'dict'):
-            el = input(f"Enter the existing {type_el} variable (my_listm, my_dict ....): ")
-            # check for list, tuple, set or tuple syntax
-            if el in ('[', '(', '{', '}', ')', ']'):
-                raise TypeError(f"Cannot directly insert {type_el} . Please use an existing {type_el} variable.")
-        # insert the element into the list
+        # check if user tried to insert data structure
+        if el in ('[', '(', '{', '}', ')', ']'):
+            print(f"Cannot directly insert Data Structure and it will be inserted as a string.")
+
+        # Check the user choice and convert
+        el = check_type(type_el, el)
+
+        # Insert the element into the list
+        lst.insert(position, el)
+        print("Element inserted successfully!")
+        return lst
+
+    except (TypeError, ValueError) as e:
+        print("Error:", e)  # Handle various input errors
+        # Recursion for retrying
+        if input("Would you like to try again insertion? (y/n): ").lower() == 'y':
+            linsert_simple(lst)
+
+
+def linsert_complex(lst, el):
+    """Inserts an element at the position by user choice in the list.
+    Handles complex data structures (list, tuple, set, dict).
+    Args:
+        lst: The list to modify.
+        el: variable with asigned data structure to it
+    Returns:
+        lst with inserted el
+    Raises:
+        ValueError: If the provided type_el is invalid, if the index which user entered is not int.
+        TypeError: If the user-selected type is invalid, conversion fails, or
+                   if the user tries to directly insert a data structure without using an existing variable.
+    """
+
+    try:
+        # Get user input for position and element type
+        position_str = input(f"Enter an index between (0 and {len(lst) - 1}): ")
+        # Convert to lowercase for matching
+        type_el = input("Select type of value to insert: list, tuple, set, dict: ").lower()
+        # Validate position (integer and within range)
+        try:
+            position = int(position_str)
+            if position >= len(lst):
+                print("The index you provided is bigger than lenght of your list. "
+                      "Your value will be added at the end of your list")
+        except ValueError:
+            raise ValueError("Invalid index. Please enter a number.")
+
+        # Check the user choice and handle complex data structures
+        if type_el in ('list', 'tuple', 'set', 'dict'):
+            # Check for list, tuple, set or tuple syntax
+            check_type(type_el, el)
+        # Insert the element into the list
         lst.insert(position, el)
         print("Element inserted successfully!")
         return lst
     except (TypeError, ValueError) as e:
         print("Error:", e)  # Handle various input errors
-        # reкursion to start again if user wants
+        # Recursion for retrying
         if input("Would you like to try again insertion? (y/n): ").lower() == 'y':
-            linsert(lst)
+            linsert_complex(lst, el)
 
 
 def display_list_menu():
