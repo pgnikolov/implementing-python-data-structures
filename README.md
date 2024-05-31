@@ -18,21 +18,22 @@ The functions are designed to be clear, concise, and efficient.
 
 This Python code provides a comprehensive set of functions for manipulating lists, offering robust data type handling and informative error messages.
 
-Key Features:
+1. Key Features:
 
-- Type Validation: Ensures that inserted elements match the user-specified data type using the check_type function. 
-- Error Handling: Provides informative error messages for various input errors, including invalid index, invalid type selection, and conversion failures.
-- User Input: Interactively prompts the user for the type and value to insert or modify.
-- Recursion: Offers the option to retry operations if errors occur.
+   - Type Validation: Ensures that inserted elements match the user-specified data type using the check_type function. 
+   - Error Handling: Provides informative error messages for various input errors, including invalid index, invalid type selection, and conversion failures.
+   - User Input: Interactively prompts the user for the type and value to insert or modify.
+   - Recursion: Offers the option to retry operations if errors occur.
 
-Supported List Operations:
-- check_type(): Ensures that inserted elements match the user-specified data type.
-- linsert(lst): Inserts an element at a specified position.
-- lappend(lst): Adds an element to the end of the list.
-- lextend(lst): Extends the list with elements from another iterable (list, tuple, string, dict).
-- lremove(lst): Remove by single value (first occurrence) or Remove all occurrences of entered value
-- display_list_menu(): Displays a menu of common list operations.
+2. Supported List Operations:
+   - check_type(): Ensures that inserted elements match the user-specified data type.
+   - linsert(lst): Inserts an element at a specified position.
+   - lappend(lst): Adds an element to the end of the list.
+   - lextend(lst): Extends the list with elements from another iterable (list, tuple, string, dict).
+   - lremove(lst): Remove by single value (first occurrence) or Remove all occurrences of entered value
+   - display_list_menu(): Displays a menu of common list operations.
 
-(To be implemented) Functions for: popping, clearing, finding indices, counting elements, sorting, reversing, and copying lists.
+3. (To be implemented)  Functions for: 
+ - popping, clearing, finding indices, counting elements, sorting, reversing, and copying lists.
 
 
