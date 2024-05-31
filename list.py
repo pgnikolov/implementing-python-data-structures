@@ -269,6 +269,43 @@ def lremove(lst):
             return lst
 
 
+def lpop(lst):
+    """
+    Pop(remove) elements from a list based on user-specified criteria:
+    - index for elements in the list or no index to pop the last element
+    Args:
+        lst (list): The list from which element will be removed.
+    Returns:
+        lst without removede element
+    Raises:
+        ValueError: If an invalid choice is made for the options
+        IndexError: if the index to remove is not in the range of the list.
+    """
+    if len(lst) == 0:
+        print("You cant perform pop from empty list")
+    else:
+        try:
+            user_choice = input("Do you want to remove the last element of the list? (y/n): ").lower()
+            if user_choice == "y":
+                lst.pop()
+            if user_choice == "n":
+                index_check = input("Do you know the index of the element you want to remove? (y/n): ")
+                if index_check == "n":
+                    print("On next lines you will see 'Index' - 'Element' for you list")
+                    for _ in range(len(lst)):
+                        print(f"{_} - {lst[_]}")
+
+                num_el = int(input("Enter index number: "))
+                lst.pop(num_el)
+            else:
+                raise ValueError("Invalid option selected")
+        except (IndexError, ValueError) as e:
+            print("Error:", e)
+            if input("Would you like to try again extension? (y/n): ").lower() == 'y':
+                lpop(lst)
+    return lst
+
+
 def display_list_menu():
     print("\nChoose a list operation:")
     print("1. Append")
