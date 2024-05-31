@@ -1,21 +1,21 @@
 def check_type(data_type, el):
     """
-    Checks the type of the `el` against the  data type `data_type`.
+    Checks the type of the `el` against the specified data type (`data_type`).
     Args:
         data_type (str): The expected data type (int, float, str, bool, list, tuple, set, dict).
         el: The element to be checked.
     Returns:
-        The converted element if the type matches or raise error
+        The converted element if the type matches or raises an error.
     Raises:
         TypeError: If the data type is not valid or if the element cannot be converted to the specified type.
     """
 
     if data_type not in ('int', 'float', 'str', 'bool', 'list', 'tuple', 'set', 'dict'):
         raise ValueError(
-            "Invalid type selection. Please choose from int, float, str, bool")
+            "Invalid type selection. Please choose from int, float, str, bool, list, tuple, set, dict")
 
     if data_type in ('int', 'float', 'str', 'bool'):
-        # check basic data types
+        # basic data types
         if data_type == 'int':
             try:
                 el = int(el)
@@ -29,16 +29,46 @@ def check_type(data_type, el):
         elif data_type == 'str':
             el = str(el)  # No conversion needed for strings
         elif data_type == 'bool':
-            if el.capitalize() in ('True', 'False'):
-                el = bool(el)
+            if el.lower() == 'true':
+                el = True
+            elif el.lower() == 'false':
+                el = False
             else:
-                el = bool(input("Invalid input. Enter a boolean value (True/False):"))
+                raise TypeError("Invalid input. Enter a boolean value (True/False):")
     else:
-        # Handle complex data structures (list, tuple, set, dict)
-        try:
-            el = eval(el)
-        except (SyntaxError, NameError):
-            raise TypeError(f"Invalid input for {data_type}. Enter a valid {data_type} expression.")
+        # complex data structures (list, tuple, set, dict)
+        if data_type == 'list':
+            # Check if the input is a valid list expression
+            try:
+                el = eval(el)
+                if not isinstance(el, list):
+                    raise TypeError("Invalid input for list. Enter a valid list expression.")
+            except (SyntaxError, NameError):
+                raise TypeError(f"Invalid input for list. Enter a valid list expression.")
+        elif data_type == 'tuple':
+            # Check if the input is a valid tuple expression
+            try:
+                el = eval(el)
+                if not isinstance(el, tuple):
+                    raise TypeError("Invalid input for tuple. Enter a valid tuple expression.")
+            except (SyntaxError, NameError):
+                raise TypeError(f"Invalid input for tuple. Enter a valid tuple expression.")
+        elif data_type == 'set':
+            # Check if the input is a valid set expression
+            try:
+                el = eval(el)
+                if not isinstance(el, set):
+                    raise TypeError("Invalid input for set. Enter a valid set expression.")
+            except (SyntaxError, NameError):
+                raise TypeError(f"Invalid input for set. Enter a valid set expression.")
+        elif data_type == 'dict':
+            # Check if the input is a valid dictionary expression
+            try:
+                el = eval(el)
+                if not isinstance(el, dict):
+                    raise TypeError("Invalid input for dictionary. Enter a valid dictionary expression.")
+            except (SyntaxError, NameError):
+                raise TypeError(f"Invalid input for dictionary. Enter a valid dictionary expression.")
 
     return el
 
@@ -59,10 +89,6 @@ def linsert(lst):
     try:
         # Get user input for position and type
         position_str = input(f"Enter an index between (0 and {len(lst) - 1}): ")
-        # Convert to lowercase for matching
-        type_el = input("Select type of value to insert: int, float, str, bool, list, tuple, set, dict: ").lower()
-        # Validate position as integer
-        el = input("Enter a value to be inserted: ")
         try:
             position = int(position_str)
             if position >= len(lst):
@@ -70,6 +96,16 @@ def linsert(lst):
                       "Your value will be added at the end of your list")
         except ValueError:
             raise ValueError("Invalid index. Please enter a number.")
+
+        # Convert to lowercase for matching
+        type_el = input("Select type of value to insert: int, float, str, bool, list, tuple, set, dict: ").lower()
+        valid_types = ("int", "float", "str", "bool", "list", "tuple", "set", "dict")
+
+        if type_el not in valid_types:
+            raise ValueError(f"Invalid type selection. Please choose from {', '.join(valid_types)}")
+
+        # Validate position as integer
+        el = input("Enter a value to be inserted: ")
 
         # Check the user choice and convert
         el = check_type(type_el, el)
@@ -100,8 +136,11 @@ def lappend(lst):
     """
     try:
         type_el = input("Select type of value to insert: int, float, str, bool, list, tuple, set, dict: ").lower()
-        # Validate position (integer and within range)
-        el = input("Enter a value to be inserted: ")
+        valid_types = ("int", "float", "str", "bool", "list", "tuple", "set", "dict")
+
+        if type_el not in valid_types:
+            raise ValueError(f"Invalid type selection. Please choose from {', '.join(valid_types)}")
+        el = input("Enter a value to be appended: ")
 
         # Check the user choice and convert
         el = check_type(type_el, el)
@@ -129,11 +168,16 @@ def lextend(lst):
         TypeError: If the provided argument is not an iterable.
     """
     try:
-        # Get the iterable to extend from
-        type_el = input("Select type of value to insert: list, tuple, set, dict: ").lower()
+        type_el = input("Select extension type - list, tuple, set, dict: ").lower()
+        valid_types = ("list", "tuple", "set", "dict")
+
+        if type_el not in valid_types:
+            raise ValueError(f"Invalid type selection. Please choose from {', '.join(valid_types)}")
+
         if type_el == "dict":
             print("Only the keys of your dictionary will be added to the list")
-        el = input("Enter a value to be inserted: ")
+
+        el = input("Enter a extension value: ")
 
         # Check if it's an iterable
         el = check_type(type_el, el)
@@ -148,6 +192,81 @@ def lextend(lst):
         # Recursion for retrying
         if input("Would you like to try again extension? (y/n): ").lower() == 'y':
             lextend(lst)
+
+
+def lremove(lst):
+    """
+    Removes elements from a list based on user-specified criteria:
+    - value for single el to be removed
+    - all occurancies of entered value to be removed
+    Args:
+        lst (list): The list from which elements will be removed.
+    Returns:
+        lst without removede element/elements
+    Raises:
+        ValueError: If an invalid choice is made for the removal method or
+                    if the value to remove is not found in the list.
+    """
+    try:
+        # Get user choice for removal method
+        choice = input("Choose removal method (value, all): ").lower()
+
+        # Remove by value (first occurrence)
+        if choice == "value":
+            # Get user input for value type
+            type_el = input("Select type of value to remove (int, float, str, bool, list, tuple, set, dict): ").lower()
+
+            # Check type and convert
+            value = check_type(type_el, input("Enter the value to remove: "))
+
+            try:
+                if type_el == 'bool':
+                    # Special handling for booleans to avoid confusion with 0 and 1
+                    for index, el in enumerate(lst):
+                        if isinstance(el, bool) and el == value:
+                            lst.pop(index)
+                            print("Element removed successfully!")
+                            break
+                else:
+                    # Remove the first occurrence of the value
+                    try:
+                        lst.remove(value)
+                    except ValueError:
+                        print("Value not found in the list.")
+                print("Element removed successfully!")
+            except ValueError:
+                print("Value not found in the list.")
+
+        # Remove all occurrences
+        elif choice == "all":
+            # Get user input for value type
+            type_el = input(
+                "Select type of value to remove all occurrences of "
+                "(int, float, str, bool, list, tuple, set, dict): ").lower()
+
+            # Check type and convert
+            value = check_type(type_el, input("Enter the value to remove all occurrences of: "))
+
+            if type_el == 'bool':
+                # Special handling for booleans to avoid confusion with 0 and 1
+                lst = [el for el in lst if not (isinstance(el, bool) and el == value)]
+            else:
+                # Remove all occurrences of the value
+                lst = [el for el in lst if el != value]
+
+            print("All occurrences of the value removed successfully!")
+
+        else:
+            raise ValueError("Invalid choice. Please choose 'value' or 'all'.")
+
+        return lst
+
+    except ValueError as e:
+        print("Error:", e)  # Handle various input errors
+        if input("Would you like to try again removal? (y/n): ").lower() == 'y':
+            return lremove(lst)
+        else:
+            return lst
 
 
 def display_list_menu():
