@@ -6,30 +6,30 @@ def main_list():
     lst = initial_values.split(',')
 
     while True:
-        display_list_menu()
+        l.display_list_menu()
         choice = input("Enter your choice (1-12): ")
         if choice == '1':
-            l.lappend(lst)
+            print(l.lappend(lst))
         elif choice == '2':
-            l.lextend(lst)
+            print(l.lextend(lst))
         elif choice == '3':
-            l.linsert(lst)
+            print(l.linsert(lst))
         elif choice == '4':
-            l.lremove(lst)
+            print(l.lremove(lst))
         elif choice == '5':
-            l.lpop(lst)
+            print(l.lpop(lst))
         elif choice == '6':
-            l.lclear(lst)
+            print(l.lclear(lst))
         elif choice == '7':
-            l.lindex(lst)
+            print(l.lindex(lst))
         elif choice == '8':
-            l.lcount(lst)
+            print(l.lcount(lst))
         elif choice == '9':
-            l.lsort(lst)
+            print(l.lsort(lst))
         elif choice == '10':
-            l.lreverse(lst)
+            print(l.lreverse(lst))
         elif choice == '11':
-            l.lcopy(lst)
+            print(l.lcopy(lst))
         elif choice == '12':
             print("Exiting the application.")
             break
