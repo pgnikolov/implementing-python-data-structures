@@ -30,8 +30,9 @@ Supported List Operations:
 - linsert(lst): Inserts an element at a specified position.
 - lappend(lst): Adds an element to the end of the list.
 - lextend(lst): Extends the list with elements from another iterable (list, tuple, string, dict).
+- lremove(lst): Remove by single value (first occurrence) or Remove all occurrences of entered value
 - display_list_menu(): Displays a menu of common list operations.
 
-(To be implemented) Functions for removing, popping, clearing, finding indices, counting elements, sorting, reversing, and copying lists.
+(To be implemented) Functions for: popping, clearing, finding indices, counting elements, sorting, reversing, and copying lists.
 
 
