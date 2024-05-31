@@ -31,9 +31,10 @@ This Python code provides a comprehensive set of functions for manipulating list
    - lappend(lst): Adds an element to the end of the list.
    - lextend(lst): Extends the list with elements from another iterable (list, tuple, string, dict).
    - lremove(lst): Remove by single value (first occurrence) or Remove all occurrences of entered value
+   - lpop(lst): Remove last element of the list if index is not specified or an element which index user enter
    - display_list_menu(): Displays a menu of common list operations.
 
 3. (To be implemented)  Functions for:
-   - popping, clearing, finding indices, counting elements, sorting, reversing, and copying lists.
+   - clearing, finding indices, counting elements, sorting, reversing, and copying lists.
 
 
