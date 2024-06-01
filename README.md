@@ -128,7 +128,7 @@ This Python code provides a comprehensive set of functions for manipulating list
    ```
    - display_list_menu(): Displays a menu of common list operations.
 
-3. (To be implemented)  Functions for:
+3. (To be implemented):
    - finding indices, counting elements, sorting, reversing, and copying lists.
 
 
