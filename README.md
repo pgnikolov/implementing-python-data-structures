@@ -142,9 +142,22 @@ This Python code provides a comprehensive set of functions for manipulating list
 		TypeError: If the element cannot be converted to the specified type.
    """
    ```
+   - lcount(lst): Counts the occurrences of a value in a list, handling different data types.
+   ```python
+   	"""
+	Counts the occurrences of a value in a list, handling different data types.
+	Args:
+		lst: The list to search for the value.
+	Returns:
+		int: The number of times the value appears in the list.
+	Raises:
+		ValueError: If the data type is invalid or the value is not found in the list.
+		TypeError: If the element cannot be converted to the specified type.
+   """
+   ```
    - display_list_menu(): Displays a menu of common list operations.
 
 3. (To be implemented):
-   counting elements, sorting, reversing, and copying lists.
+   sorting, reversing, and copying lists.
 
 

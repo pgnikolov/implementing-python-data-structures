@@ -372,6 +372,47 @@ def lindex(lst):
 		return []
 
 
+def lcount(lst):
+	"""
+	Counts the occurrences of a value in a list, handling different data types.
+	Args:
+		lst: The list to search for the value.
+	Returns:
+		int: The number of times the value appears in the list.
+	Raises:
+		ValueError: If the data type is invalid or the value is not found in the list.
+		TypeError: If the element cannot be converted to the specified type.
+	"""
+
+	count = 0
+	try:
+		data_type = input(
+			"Enter the type of element you want to count (int, float, str, bool, list, tuple, set, dict): ").lower()
+		valid_types = "int, float, str, bool, list, tuple, set, dict"
+
+		if data_type not in valid_types:
+			raise ValueError(f"Invalid type selection. Please choose from {', '.join(valid_types)}")
+
+		el = input("Enter the value to count its occurrences: ")
+		# Check and convert the value using check_type
+		value = check_type(data_type, el)
+
+		# Special handling for booleans using "is" instead of "==" because we need reference equality
+		if data_type == 'bool':
+			count = sum(el is value for el in lst)  # Use list comprehension with el is value
+		else:
+			count = lst.count(value)
+
+		return f"Value - {value} appears {count} times in the list."
+
+	except (ValueError, TypeError) as e:
+		print(f"Error: {e}")
+		if input("Would you like to try count again with correct value? (y/n): ").lower() == 'y':
+			lcount(lst)
+
+	return count
+
+
 def display_list_menu():
 	print("\nChoose a list operation:")
 	print("1. Append")
