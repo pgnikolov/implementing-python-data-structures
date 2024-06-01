@@ -43,7 +43,8 @@ This Python code provides a comprehensive set of functions for manipulating list
    - linsert(lst): Inserts an element at a specified position.
    ```python
    def linsert(lst):
-    """Inserts an element at the position by user choice in the list.
+    """
+   Inserts an element at the position by user choice in the list.
     Handles almost all kinds of data types for 'el' (int, float, str, bool, list, tuple, set, dict)
     based on user-selected type and provides informative error messages.
     Args:
@@ -58,7 +59,8 @@ This Python code provides a comprehensive set of functions for manipulating list
    - lappend(lst): Adds an element to the end of the list.
    ```python
    def lappend(lst):
-    """Inserts an element at the end of the list. Handles almost all kinds of data types for 'el'
+    """
+   Inserts an element at the end of the list. Handles almost all kinds of data types for 'el'
     (int, float, str, bool, list, tuple, set, dict)
     based on user-selected type and provides informative error messages.
     Args:
@@ -73,7 +75,8 @@ This Python code provides a comprehensive set of functions for manipulating list
    - lextend(lst): Extends the list with elements from another iterable (list, tuple, string, dict).
    ```python
    def lextend(lst):
-    """Extends the list with elements from the provided iterable.
+    """
+   Extends the list with elements from the provided iterable.
     Handles iterables: lists, tuples, strings, dict.
     Args:
         lst: The list to modify.
@@ -86,7 +89,8 @@ This Python code provides a comprehensive set of functions for manipulating list
    - lremove(lst): Remove by single value (first occurrence) or Remove all occurrences of entered value
    ```python
    def lremove(lst):
-    """Removes elements from a list based on user-specified criteria:
+    """
+   Removes elements from a list based on user-specified criteria:
     - value for single el to be removed
     - all occurancies of entered value to be removed
     Args:
@@ -115,7 +119,8 @@ This Python code provides a comprehensive set of functions for manipulating list
    - lclear(lst): Removes all elements from a list using the clear() method.
    ```python
    def lclear(lst):
-    """  Removes all elements from a list using the clear() method.
+    """
+   Removes all elements from a list using the clear() method.
     Args:
         lst: The list from which elements will be removed.
     Returns:
@@ -126,7 +131,8 @@ This Python code provides a comprehensive set of functions for manipulating list
    ```
    - lindex(lst): Find an index of given element, if the element occurs more than 1 time in the list it will retur all indexes of it.
    ```python
-   	"""Finds the index(es) of a value in a list and returns them, handling different data types.
+   	"""
+   Finds the index(es) of a value in a list and returns them, handling different data types.
 	Args:
 		lst: The list to search for the value
 	Returns:
