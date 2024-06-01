@@ -195,3 +195,19 @@ This Python code provides a comprehensive set of functions for manipulating list
    ```
    - display_list_menu(): Displays a menu of common list operations.
 
+#### Installation
+
+To use these functions, simply clone the repository and import the desired functions into your Python script.
+```bash
+git clone https://github.com/pgnikolov/implementing-python-data-structures.git
+cd implementing-python-data-structures
+```
+#### Contributing
+Contributions are welcome! If you have any suggestions or improvements, feel free to create an issue or submit a pull request.
+
+#### License
+This project is licensed under the MIT License.
+
+#### Contact
+For any questions or feedback, please contact [![Gmail](https://img.shields.io/badge/-Gmail-c14438?style=flat&logo=Gmail&logoColor=white)](mailto:pgnikolov@gmail.com)
+
