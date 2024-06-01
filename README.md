@@ -126,9 +126,22 @@ This Python code provides a comprehensive set of functions for manipulating list
         TypeError: If the input `lst` is not a list object.
     """
    ```
+   - lindex(lst): Find an index of given element, if the element occurs more than 1 time in the list it will retur all indexes of it.
+   ```python
+   	"""
+	Finds the index(es) of a value in a list and returns them, handling different data types.
+	Args:
+		lst: The list to search for the value
+	Returns:
+		list: A list of all indices where the value is found, or an empty list if not found.
+	Raises:
+		ValueError: If the data type is invalid.
+		TypeError: If the element cannot be converted to the specified type.
+   """
+   ```
    - display_list_menu(): Displays a menu of common list operations.
 
 3. (To be implemented):
-   - finding indices, counting elements, sorting, reversing, and copying lists.
+   counting elements, sorting, reversing, and copying lists.
 
 
