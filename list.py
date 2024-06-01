@@ -275,33 +275,37 @@ def lpop(lst):
 	Args:
 		lst (list): The list from which element will be removed.
 	Returns:
-		lst without removede element
+		lst without removed element
 	Raises:
 		ValueError: If an invalid choice is made for the options
 		IndexError: if the index to remove is not in the range of the list.
 	"""
 	if len(lst) == 0:
-		print("You cant perform pop from empty list")
-	else:
-		try:
-			user_choice = input("Do you want to remove the last element of the list? (y/n): ").lower()
-			if user_choice == "y":
-				lst.pop()
-			if user_choice == "n":
-				index_check = input("Do you know the index of the element you want to remove? (y/n): ")
-				if index_check == "n":
-					print("On next lines you will see 'Index' - 'Element' for you list")
-					for _ in range(len(lst)):
-						print(f"{_} - {lst[_]}")
+		print("You can't perform pop from an empty list")
+		return lst
 
-				num_el = int(input("Enter index number: "))
-				lst.pop(num_el)
-			else:
-				raise ValueError("Invalid option selected")
-		except (IndexError, ValueError) as e:
-			print("Error:", e)
-			if input("Would you like to try again extension? (y/n): ").lower() == 'y':
-				lpop(lst)
+	try:
+		user_choice = input("Do you want to remove the last element of the list? (y/n): ").lower()
+		if user_choice == "y":
+			lst.pop()
+		elif user_choice == "n":
+			index_check = input("Do you know the index of the element you want to remove? (y/n): ").lower()
+			if index_check == "n":
+				print("On next lines you will see 'Index' - 'Element' for your list")
+				for i in range(len(lst)):
+					print(f"{i} - {lst[i]}")
+
+			num_el = int(input("Enter index number: "))
+			if num_el < 0 or num_el >= len(lst):
+				raise IndexError("Invalid index.")
+			lst.pop(num_el)
+		else:
+			raise ValueError("Invalid option selected")
+	except (IndexError, ValueError) as e:
+		print("Error:", e)
+		if input("Would you like to try again? (y/n): ").lower() == 'y':
+			lpop(lst)
+
 	return lst
 
 
@@ -455,6 +459,38 @@ def lsort(lst, inplace=True):
 	# Print the sorted list if in-place sorting
 	if inplace:
 		print(f"Sorted list: {lst}")
+
+
+def lreverse(lst):
+	"""
+	Reverses the order of a list using the reverse() method, handling errors.
+	Args:
+		lst: The list to be reversed.
+	Returns:
+		None (modifies the list in-place)
+	Prints the reversed list or an informative message if an error occurs.
+	"""
+	if not isinstance(lst, list):
+		raise TypeError("Argument must be a list.")
+	lst.reverse()
+	return f"Reversed list: {lst}"
+
+
+def lcopy(lst):
+	"""
+	Creates a shallow copy of a list using the copy() method, handling errors.
+	Args:
+		lst: The list to be copied.
+	Returns:
+		A new list (shallow copy) of the original list.
+	Raises:
+		TypeError: If the argument is not a list.
+	"""
+
+	if not isinstance(lst, list):
+		raise TypeError("Argument must be a list.")
+
+	return lst.copy()
 
 
 def display_list_menu():
