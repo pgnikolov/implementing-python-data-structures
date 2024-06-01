@@ -306,6 +306,31 @@ def lpop(lst):
     return lst
 
 
+def lclear(lst):
+    """  Removes all elements from a list using the clear() method.
+    Args:
+        lst: The list from which elements will be removed.
+    Returns:
+        list: The modified list after clearing all elements.
+    Raises:
+        TypeError: If the input `lst` is not a list object.
+    """
+    try:
+        if isinstance(lst, list):  # Use isinstance for type checking
+            if len(lst) == 0:
+                print("It's already empty")
+            else:
+                lst.clear()
+            return lst
+    except TypeError as e:
+        print("Error:", e)
+        if input("Would you like to try again? (y/n): ").lower() == 'y':
+            return lclear(lst)
+        else:
+            return type(lst)
+
+
+
 def display_list_menu():
     print("\nChoose a list operation:")
     print("1. Append")
