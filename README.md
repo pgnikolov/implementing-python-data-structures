@@ -157,6 +157,8 @@ This Python code provides a comprehensive set of functions for manipulating list
 		TypeError: If the element cannot be converted to the specified type.
    """
    ```
+   - lsort(lst):
+   
    - display_list_menu(): Displays a menu of common list operations.
 
 3. (To be implemented):

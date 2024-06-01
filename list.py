@@ -413,6 +413,51 @@ def lcount(lst):
 	return count
 
 
+def lsort(lst, inplace=True):
+	"""
+	Sorts a list in ascending or descending order, handling data structures.
+	Args:
+		lst: The list to be sorted.
+		inplace: (Optional)control in-place sorting or returning a new list. Defaults to True (in-place sorting).
+	Returns:
+		None (sorts the list in-place) or a new sorted list (if inplace=False).
+	Prints the sorted list or an informative message if sorting is not possible.
+	"""
+
+	# Get user input for sorting order
+	order = input("Enter 'asc' for ascending or 'desc' for descending order: ").lower()
+
+	# Check for unsortable data structures
+	unsortable_types = (set, dict)
+	if any(isinstance(el, unsortable_type) for el in lst for unsortable_type in unsortable_types):
+		print("The list contains mixed data types. Sorting is not possible.")
+		return
+
+	# Check if all elements have the same data type
+	data_type = type(lst[0])
+	if not all(isinstance(el, data_type) for el in lst):
+		print("The list contains elements of different data types. Sorting is not possible.")
+		return
+
+	# Sort the list based on user input and inplace flag
+	if order == "asc":
+		if inplace:
+			lst.sort()
+		else:
+			return sorted(lst)
+	elif order == "desc":
+		if inplace:
+			lst.sort(reverse=True)
+		else:
+			return sorted(lst, reverse=True)
+	else:
+		print("Invalid order. Please enter 'asc' or 'desc'.")
+		lsort(lst)
+	# Print the sorted list if in-place sorting
+	if inplace:
+		print(f"Sorted list: {lst}")
+
+
 def display_list_menu():
 	print("\nChoose a list operation:")
 	print("1. Append")
