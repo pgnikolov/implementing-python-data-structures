@@ -92,8 +92,7 @@ def linsert(lst):
 		try:
 			position = int(position_str)
 			if position >= len(lst):
-				print("The index you provided is bigger than lenght of your list. "
-					  "Your value will be added at the end of your list")
+				print("Your index is bigger than lenght of your list. Value will be added at the end of your list")
 		except ValueError:
 			raise ValueError("Invalid index. Please enter a number.")
 

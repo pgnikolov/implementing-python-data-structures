@@ -9,7 +9,7 @@
 * Sets
 * Dictionaries
 
-Each data structure offers methods for performing essential operations like insertion, deletion, searching, and modification. 
+Each data structure offers methods for performing essential operations like insertion, deletion, searching, and modification.
 The functions are designed to be clear, concise, and efficient.
 
 ## List
@@ -20,13 +20,13 @@ This Python code provides a comprehensive set of functions for manipulating list
 
 1. Key Features:
 
-   - Type Validation: Ensures that inserted elements match the user-specified data type using the check_type function. 
-   - Error Handling: Provides informative error messages for various input errors, including invalid index, invalid type selection, and conversion failures.
-   - User Input: Interactively prompts the user for the type and value to insert or modify.
-   - Recursion: Offers the option to retry operations if errors occur.
+    - Type Validation: Ensures that inserted elements match the user-specified data type using the check_type function.
+    - Error Handling: Provides informative error messages for various input errors, including invalid index, invalid type selection, and conversion failures.
+    - User Input: Interactively prompts the user for the type and value to insert or modify.
+    - Recursion: Offers the option to retry operations if errors occur.
 
 2. Supported List Operations:
-   - check_type(): Ensures that inserted elements match the user-specified data type.
+    - check_type(): Ensures that inserted elements match the user-specified data type.
    ```python 
    def check_type(data_type, el):
     """
@@ -40,7 +40,7 @@ This Python code provides a comprehensive set of functions for manipulating list
         TypeError: If the data type is not valid or if the element cannot be converted to the specified type.
     """
    ```
-   - linsert(lst): Inserts an element at a specified position.
+    - linsert(lst): Inserts an element at a specified position.
    ```python
    def linsert(lst):
     """
@@ -56,7 +56,7 @@ This Python code provides a comprehensive set of functions for manipulating list
         TypeError: If the user-selected type is invalid or conversion fails.
     """
    ```
-   - lappend(lst): Adds an element to the end of the list.
+    - lappend(lst): Adds an element to the end of the list.
    ```python
    def lappend(lst):
     """
@@ -72,7 +72,7 @@ This Python code provides a comprehensive set of functions for manipulating list
         TypeError: If the user-selected type is invalid or conversion fails.
     """
    ```
-   - lextend(lst): Extends the list with elements from another iterable (list, tuple, string, dict).
+    - lextend(lst): Extends the list with elements from another iterable (list, tuple, string, dict).
    ```python
    def lextend(lst):
     """
@@ -86,7 +86,7 @@ This Python code provides a comprehensive set of functions for manipulating list
         TypeError: If the provided argument is not an iterable.
     """
    ```
-   - lremove(lst): Remove by single value (first occurrence) or Remove all occurrences of entered value
+    - lremove(lst): Remove by single value (first occurrence) or Remove all occurrences of entered value
    ```python
    def lremove(lst):
     """
@@ -102,7 +102,7 @@ This Python code provides a comprehensive set of functions for manipulating list
                     if the value to remove is not found in the list.
     """
    ```
-   - lpop(lst): Remove last element of the list if index is not specified or an element which index user entered.
+    - lpop(lst): Remove last element of the list if index is not specified or an element which index user entered.
    ```python
    def lpop(lst):
     """Pop(remove) elements from a list based on user-specified criteria:
@@ -116,7 +116,7 @@ This Python code provides a comprehensive set of functions for manipulating list
         IndexError: if the index to remove is not in the range of the list.
     """
    ``` 
-   - lclear(lst): Removes all elements from a list using the clear() method.
+    - lclear(lst): Removes all elements from a list using the clear() method.
    ```python
    def lclear(lst):
     """
@@ -129,7 +129,7 @@ This Python code provides a comprehensive set of functions for manipulating list
         TypeError: If the input `lst` is not a list object.
     """
    ```
-   - lindex(lst): Find an index of given element, if the element occurs more than 1 time in the list it will retur all indexes of it.
+    - lindex(lst): Find an index of given element, if the element occurs more than 1 time in the list it will retur all indexes of it.
    ```python
    def lindex(lst):
     """
@@ -143,7 +143,7 @@ This Python code provides a comprehensive set of functions for manipulating list
 		TypeError: If the element cannot be converted to the specified type.
    """
    ```
-   - lcount(lst): Counts the occurrences of a value in a list, handling different data types.
+    - lcount(lst): Counts the occurrences of a value in a list, handling different data types.
    ```python
    def lcount(lst):
     """
@@ -157,9 +157,9 @@ This Python code provides a comprehensive set of functions for manipulating list
 		TypeError: If the element cannot be converted to the specified type.
    """
    ```
-   - lsort(lst):
-   
-   - display_list_menu(): Displays a menu of common list operations.
+    - lsort(lst):
+
+    - display_list_menu(): Displays a menu of common list operations.
 
 3. (To be implemented):
    sorting, reversing, and copying lists.
