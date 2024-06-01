@@ -131,8 +131,9 @@ This Python code provides a comprehensive set of functions for manipulating list
    ```
    - lindex(lst): Find an index of given element, if the element occurs more than 1 time in the list it will retur all indexes of it.
    ```python
-   	"""
-   Finds the index(es) of a value in a list and returns them, handling different data types.
+   def lindex(lst):
+    """
+	Finds the index(es) of a value in a list and returns them, handling different data types.
 	Args:
 		lst: The list to search for the value
 	Returns:
@@ -144,9 +145,10 @@ This Python code provides a comprehensive set of functions for manipulating list
    ```
    - lcount(lst): Counts the occurrences of a value in a list, handling different data types.
    ```python
-   	"""
-	Counts the occurrences of a value in a list, handling different data types.
-	Args:
+   def lcount(lst):
+    """
+   Counts the occurrences of a value in a list, handling different data types.
+   Args:
 		lst: The list to search for the value.
 	Returns:
 		int: The number of times the value appears in the list.
