@@ -86,8 +86,7 @@ This Python code provides a comprehensive set of functions for manipulating list
    - lremove(lst): Remove by single value (first occurrence) or Remove all occurrences of entered value
    ```python
    def lremove(lst):
-    """
-    Removes elements from a list based on user-specified criteria:
+    """Removes elements from a list based on user-specified criteria:
     - value for single el to be removed
     - all occurancies of entered value to be removed
     Args:
@@ -102,8 +101,7 @@ This Python code provides a comprehensive set of functions for manipulating list
    - lpop(lst): Remove last element of the list if index is not specified or an element which index user entered.
    ```python
    def lpop(lst):
-    """
-    Pop(remove) elements from a list based on user-specified criteria:
+    """Pop(remove) elements from a list based on user-specified criteria:
     - index for elements in the list or no index to pop the last element
     Args:
         lst (list): The list from which element will be removed.
@@ -128,8 +126,7 @@ This Python code provides a comprehensive set of functions for manipulating list
    ```
    - lindex(lst): Find an index of given element, if the element occurs more than 1 time in the list it will retur all indexes of it.
    ```python
-   	"""
-	Finds the index(es) of a value in a list and returns them, handling different data types.
+   	"""Finds the index(es) of a value in a list and returns them, handling different data types.
 	Args:
 		lst: The list to search for the value
 	Returns:
