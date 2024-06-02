@@ -16,182 +16,134 @@ The functions are designed to be clear, concise, and efficient.
 
 #### List Manipulation with Type Validation and Error Handling
 
-This Python code provides a comprehensive set of functions for manipulating lists, offering robust data type handling and informative error messages.
+This Python code provides a comprehensive set of functions for manipulating lists.
 
 1. Key Features:
 
-- Type Validation: Ensures that inserted elements match the user-specified data type using the check_type function.
 - Error Handling: Provides informative error messages for various input errors, including invalid index, invalid type selection, and conversion failures.
 - User Input: Interactively prompts the user for the type and value to insert or modify.
-- Recursion: Offers the option to retry operations if errors occur.
-
+- 
 2. Supported List Operations:
-	- check_type(): Ensures that inserted elements match the user-specified data type.
+    - def handle_insert(lst): Inserts an element at a specified position.
    ```python
-   def check_type(data_type, el):
-   """
-   Checks the type of the `el` against the specified data type (`data_type`).
-   Args:
-       data_type (str): The expected data type (int, float, str, bool, list, tuple, set, dict).
-       el: The element to be checked.
-    Returns:
-       The converted element if the type matches or raises an error.
-    Raises:
-       TypeError: If the data type is not valid or if the element cannot be converted to the specified type.
-    """
+	"""
+		Insert a new element into the list at a specified index.
+	Args:
+		list to insert the element into.
+	Raises:
+		ValueError: If the input index is not an integer.
+	Returns:
+		updated list
+	"""
    ```
-    - linsert(lst): Inserts an element at a specified position.
+    - handle_append(lst): Adds an element to the end of the list.
    ```python
-   def linsert(lst):
    """
-   Inserts an element at the position by user choice in the list.
-   Handles almost all kinds of data types for 'el' (int, float, str, bool, list, tuple, set, dict) based on user-selected type and provides informative error messages.
-   Args:
-       st: The list to modify.
-   Returns:
-       lst with inserted el
-   Raises:
-       ValueError: If the provided type_el is invalid, if the index which user entered is not int.
-       TypeError: If the user-selected type is invalid or conversion fails.
-    """
+   		Appends a new element to the end of the list.
+	Args:
+		list to modify.
+	Returns:
+		The updated list.
+	"""
    ```
-    - lappend(lst): Adds an element to the end of the list.
+    - handle_extend(lst): Extends the list with elements from another iterable (list, tuple, string, dict).
    ```python
-   def lappend(lst):
-    """
-   Inserts an element at the end of the list. Handles almost all kinds of data types for 'el'(int, float, str, bool, list, tuple, set, dict)
-   based on user-selected type and provides informative error messages.
-   Args:
-       lst: The list to modify.
-   Returns:
-       lst with appended el
-   Raises:
-       ValueError: If the provided type_el is invalid, if the index which user entered is not int.
-       TypeError: If the user-selected type is invalid or conversion fails.
-    """
+	"""
+   		Extend a list by appending elements from iterable.
+	Args:
+		list to modify.
+	Returns:
+		The updated list.
+	"""
    ```
-    - lextend(lst): Extends the list with elements from another iterable (list, tuple, string, dict).
+	- handle_remove(lst):  Remove by single value (first occurrence)
    ```python
-   def lextend(lst):
-   """
-   Extends the list with elements from the provided iterable.
-   Handles iterables: lists, tuples, strings, dict.
-   Args:
-       lst: The list to modify.
-   Returns:
-       lst with extended elements
-   Raises:
-       TypeError: If the provided argument is not an iterable.
-    """
+	"""
+		Remove an element from the list.
+	Args:
+		list to remove the element from.
+	Raises:
+		ValueError: If the value is not found in the list.
+	Returns:
+		updated list
+	"""
    ```
-    - lremove(lst): Remove by single value (first occurrence) or Remove all occurrences of entered value
+    - handle_pop(lst): Remove last element of the list if index is not specified or an element which index user entered.
    ```python
-   def lremove(lst):
-   """
-   Removes elements from a list based on user-specified criteria:
-       - value for single el to be removed
-       - all occurancies of entered value to be removed
-   Args:
-       lst (list): The list from which elements will be removed.
-   Returns:
-       lst without removede element/elements
-   Raises:
-       ValueError: If an invalid choice is made for the removal method or if the value to remove is not found in the list.
-    """
-   ```
-    - lpop(lst): Remove last element of the list if index is not specified or an element which index user entered.
-   ```python
-   def lpop(lst):
-   """
-   Pop(remove) elements from a list based on user-specified criteria:
-       - index for elements in the list or no index to pop the last element
-   Args:
-       lst (list): The list from which element will be removed.
-   Returns:
-       lst without removede element
-   Raises:
-       ValueError: If an invalid choice is made for the options
-       IndexError: if the index to remove is not in the range of the list.
-    """
+	"""
+		Pop an element at a specified index or the last element if no index is provided.
+	Args:
+		list to pop the element from.
+	Raises:
+		IndexError: If the index is out of range.
+		ValueError: If the input index is not an integer.
+	Returns:
+		updated list
+	"""
    ``` 
-    - lclear(lst): Removes all elements from a list using the clear() method.
+    - handle_clear(lst): Removes all elements from a list using the clear() method.
    ```python
-   def lclear(lst):
-   """
-   Removes all elements from a list using the clear() method.
-   Args:
-       lst: The list from which elements will be removed.
-   Returns:
-       list: The modified list after clearing all elements.
-   Raises:
-       TypeError: If the input `lst` is not a list object.
-    """
+	"""
+		Clear all elements from the list.
+	Argss:
+		list to clear.
+	Returns:
+		empty list
+	"""
    ```
-    - lindex(lst): Find an index of given element, if the element occurs more than 1 time in the list it will retur all indexes of it.
+    - handle_index(lst): Find an index of given element.
    ```python
-   def lindex(lst):
-   """
-   Finds the index(es) of a value in a list and returns them, handling different data types.
-   Args:
-       lst: The list to search for the value
-   Returns:
-       list: A list of all indices where the value is found, or an empty list if not found.
-   Raises:
-       ValueError: If the data type is invalid.
-   	TypeError: If the element cannot be converted to the specified type.
-   """
+	"""
+		Find the index of a specified value in the list.
+	Args:
+		list to search for the value.
+	Raises:
+		ValueError: If the value is not found in the list.
+	Returns:
+		index of value
+	"""
    ```
-    - lcount(lst): Counts the occurrences of a value in a list, handling different data types.
+    - handle_count(lst): Counts the occurrences of a value in a list.
    ```python
-   def lcount(lst):
-    """
-   Counts the occurrences of a value in a list, handling different data types.
-   Args:
-       lst: The list to search for the value.
-   Returns:
-       int: The number of times the value appears in the list.
-   Raises:
-       ValueError: If the data type is invalid or the value is not found in the list.
-       TypeError: If the element cannot be converted to the specified type.
-   """
+	"""
+		Count the occurrences of a specified value in the list.
+	Args:
+		list to count the occurrences of the value.
+	Returns:
+		number of ooccurrencess of a value
+	"""
    ```
-    - lsort(lst): Sorts a list in ascending or descending order, handling data types.
+    - handle_sort(lst): Sorts a list.
    ```python
-   def lsort(lst, inplace=True):
-   """
-   Sorts a list in ascending or descending order, handling data structures.
-   Args:
-       lst: The list to be sorted.
-       inplace: (Optional)control in-place sorting or returning a new list. Defaults to True (in-place sorting).
-   Returns:
-       None (sorts the list in-place) or a new sorted list (if inplace=False).
-       Prints the sorted list or an informative message if sorting is not possible.
-   """
+	"""
+		Sort the list.
+	Argss:
+		list to sort.
+	Raises:
+		TypeError: If the list contains elements of different data types.
+	Returns:
+		sorted list
+	"""
    ```
-   - lreverse(lst)
+   - handle_reverse(lst)
    ```python
-   def lreverse(lst):
-   """
-   Reverses the order of a list using the reverse() method, handling errors.
-   Args:
-       lst: The list to be reversed.
-   Returns:
-       None (modifies the list in-place)
-       Prints the reversed list or an informative message if an error occurs.
-   """
+	"""
+		Reverse the order of elements in the list.
+	Args:
+		list to reverse.
+	Returns:
+		reversed list
+	"""
    ```
-   - lcopy(lst):
+   - handle_copy(lst):
    ```python
-   def lcopy(lst):
-   """
-   Creates a shallow copy of a list using the copy() method, handling errors.
-   Args:
-       lst: The list to be copied.
-   Returns:
-       A new list (shallow copy) of the original list.
-   Raises:
-       TypeError: If the argument is not a list.
-	"""  
+	"""
+		Create a copy of the list.
+	Argss:
+		list to copy.
+	Returns:
+		list copy
+	"""
    ```
    - display_list_menu(): Displays a menu of common list operations.
 
