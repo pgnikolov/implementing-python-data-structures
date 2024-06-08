@@ -1,10 +1,13 @@
-# Implementing Python Data Structures
+# Implementing Python Data Structures 🧱
 
-<img src="https://github.com/pgnikolov/implementing-python-data-structures/assets/151896883/e21970fa-c162-4dea-aef6-f5d46585b818" width="790" height="400"/>
+<img src="https://github.com/pgnikolov/implementing-python-data-structures/assets/151896883/e21970fa-c162-4dea-aef6-f5d46585b818" width="700" height="400"/>
 
 ### This repository provides a collection of Python functions for commonly used data structures, including:
 
 * Lists
+
+Coming soon ⏳
+
 * Tuples
 * Sets
 * Dictionaries
@@ -18,12 +21,13 @@ The functions are designed to be clear, concise, and efficient.
 
 This Python code provides a comprehensive set of functions for manipulating lists.
 
-1. Key Features:
+1. 🧰 Key Features: 
 
 - Error Handling: Provides informative error messages for various input errors, including invalid index, invalid type selection, and conversion failures.
 - User Input: Interactively prompts the user for the type and value to insert or modify.
 - 
-2. Supported List Operations:
+2. 🛠️ Supported List Operations: 
+  
     - def handle_insert(lst): Inserts an element at a specified position.
    ```python
 	"""
@@ -147,19 +151,19 @@ This Python code provides a comprehensive set of functions for manipulating list
    ```
    - display_list_menu(): Displays a menu of common list operations.
 
-#### Installation
+#### Installation ⚙️
 
 To use these functions, simply clone the repository and import the desired functions into your Python script.
 ```bash
 git clone https://github.com/pgnikolov/implementing-python-data-structures.git
 cd implementing-python-data-structures
 ```
-#### Contributing
+#### Contributing 🤝
 Contributions are welcome! If you have any suggestions or improvements, feel free to create an issue or submit a pull request.
 
-#### License
+#### License 📝
 This project is licensed under the MIT License.
 
-#### Contact
+#### Contact 📫
 For any questions or feedback, please contact [![Gmail](https://img.shields.io/badge/-Gmail-c14438?style=flat&logo=Gmail&logoColor=white)](mailto:pgnikolov@gmail.com)
 
