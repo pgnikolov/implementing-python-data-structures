@@ -1,6 +1,6 @@
 # Implementing Python Data Structures
 
-<img src="https://github.com/pgnikolov/implementing-python-data-structures/assets/151896883/e21970fa-c162-4dea-aef6-f5d46585b818" width="750" height="400"/>
+<img src="https://github.com/pgnikolov/implementing-python-data-structures/assets/151896883/e21970fa-c162-4dea-aef6-f5d46585b818" width="790" height="400"/>
 
 ### This repository provides a collection of Python functions for commonly used data structures, including:
 
