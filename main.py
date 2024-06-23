@@ -3,6 +3,7 @@ from stack import Stack
 from dictionary import Dictionary
 from setss import Sets
 from tuples import Tuples
+from queue import Queue
 
 
 def lists_display_menu():
@@ -243,6 +244,43 @@ def tuple_menu():
             print(tup.handle_index(element_to_index))
         elif choice == '3':
             print("Going back...")
+            main()
+            break
+        else:
+            print("Invalid choice")
+
+
+def display_queue_menu():
+    print('Choose Option:')
+    print('1. Enqueue')
+    print('2. Dequeue')
+    print('3. Peek')
+    print('4. Size')
+    print('5. Rotate')
+    print('6. Back to Main Menu')
+
+
+def queue_menu():
+    element = input('Enter element to enqueue(comma-separated): ')
+    qlist = Queue(element)
+
+    while True:
+        display_queue_menu()
+        choice = input("Enter a choice: ")
+        if choice == '1':
+            new_element = input('Enter new element to enqueue: ')
+            print(qlist.handle_enqueue(new_element))
+        elif choice == '2':
+            print(qlist.handle_dequeue())
+        elif choice == '3':
+            print(qlist.handle_peek())
+        elif choice == '4':
+            print(qlist.handle_size())
+        elif choice == '5':
+            rotation_steps = int(input())
+            print(qlist.handle_rotate(rotation_steps))
+        elif choice == '6':
+            print('Going back...')
             main()
             break
         else:
