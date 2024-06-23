@@ -1,4 +1,13 @@
 from lists import Lists
+from stack import Stack
+
+
+def stack_display_menu():
+    print('1. Push')
+    print('2. Pop')
+    print('3. Peek')
+    print('4. Size')
+    print('5. Back to Main Menu')
 
 
 def lists_display_menu():
@@ -15,6 +24,29 @@ def lists_display_menu():
     print("10. Reverse")
     print("11. Copy")
     print("12. Back to main menu")
+
+
+def stack_menu():
+    initial_values = input("Enter initial list values (comma-separated): ")
+    stack = Stack(initial_values)
+    while True:
+        stack_display_menu()
+        choice = input("Enter a choice: ")
+        if choice == '1':
+            element_push = input("Enter element to push: ")
+            print(stack.push(element_push))
+        elif choice == '2':
+            print(stack.pop())
+        elif choice == '3':
+            print(stack.peek())
+        elif choice == '4':
+            print(stack.size())
+        elif choice == '5':
+            print("Going back...")
+            main()
+            break
+        else:
+            print("Invalid choice")
 
 
 def list_menu():
