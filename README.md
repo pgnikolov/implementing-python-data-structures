@@ -2,193 +2,133 @@
 
 <img src="https://github.com/pgnikolov/implementing-python-data-structures/assets/151896883/e21970fa-c162-4dea-aef6-f5d46585b818" width="720" height="420"/>
 
-#### This repository provides a collection of Python functions for commonly used data structures, including:
+This project demonstrates the implementation of various Python data structures including lists, dictionaries, sets, tuples, stacks, and queues. Each data structure is implemented in its own class with methods to perform common operations. This repository provides a collection of Python functions for commonly used data structures, including:
 
-* List
+## Project Structure
 
-*Coming soon* ⏳
+The project consists of the following files:
 
-* Tuple
-* Set
-* Dictionary
+* `lists.py`
+* `dictionary.py`
+* `setss.py`
+* `tuples.py`
+* `stack.py`
+* `queue.py`
+* `main.py`
 
-Each data structure offers methods for performing essential operations like insertion, deletion, searching, and modification.
-The functions are designed to be clear, concise, and efficient.
+## Class Implementations
 
-## List: List Manipulation with Type Validation and Error Handling
-
-This Python code provides a comprehensive set of functions for manipulating lists.
-
-## **Key Features:** 🧰
-
-- Error Handling 🛡️ Provides informative error messages ℹ️ for various input errors, including invalid index, invalid type selection, and conversion failures.
-- User Input ✍️ Interactively prompts the user for the type and value to insert or modify.
-  
-## **Supported List Operations** 📋
-
-* *handle_insert(lst):* Inserts an element at a specified position.
-
-    <details>
-        <summary>More...</summary>
+1. **Lists**
     
-		    Insert a new element into the list at a specified index.
-	    Args:
-		    list to insert the element into.
-	    Raise:
-		    ValueError: If the input index is not an integer.
-	    Return:
-		    updated list
+    * File: `lists.py`
+      
+    * Methods: `handle_append`, `handle_extend`, `handle_insert`, `handle_remove`, `handle_pop`, `handle_clear`, `handle_index`, `handle_count`, `handle_sort`, `handle_reverse`, `handle_copy`
+
+2. **Dictionary**
+    
+    * File: `dictionary.py`
   
-    </details>	
+    * Methods: `handle_pop`, `handle_items`, `handle_get`, `handle_copy`, `handle_clear`, `handle_keys`, `handle_values`, `handle_update`, `handle_popitem`, `handle_setdefault`
 
-* *handle_append(lst):* Adds an element to the end of the list.
+3. **Sets**
+    
+    * File: `setss.py`
+    
+    * Methods: `handle_add`, `handle_remove`, `handle_discard`, `handle_pop`, `handle_clear`, `handle_union`, `handle_intersection`, `handle_difference`, `handle_copy`, `handle_issuperset`, `handle_issubset`, `handle_symmetric_difference`
+  
+4. **Tuples**
 
-    <details>
-        <summary>More...</summary>
+    * File: `tuples.py`
+    
+    * Methods: `handle_count`, `handle_index`
 
-            Appends a new element to the end of the list.
-       Args:
-           list to modify.
-       Returns:
-           The updated list.
+5. **Stack**
+
+    * File: `stack.py`
+    
+    * Methods:  `push`, `pop`, `peek`, `size`
+  
+6. **Queue**
+
+    * File: `queue.py`
+    
+    * Methods: `handle_enqueue`, `handle_dequeue`, `handle_peek`, `handle_size`, `handle_rotate`
+  
    
-    </details>
-    
-* *handle_extend(lst):* Extends the list with elements from another iterable (list, tuple, string, dict).
-
-    <details>
-        <summary>More...</summary>
-        
-            Extend a list by appending elements from iterable.
-        Args:
-            list to modify.
-        Return:
-            updated list.
   
-    </details>
+### Main Script
 
-* *handle_remove(lst)*   Remove by single value (first occurrence)
+The `main.py` script provides a command-line interface to interact with each of the data structures. Users can choose a data structure and perform various operations through a menu-driven interface.
 
-    <details>
-        <summary>More...</summary>
-            
-              Remove an element from the list.
-      Args:
-            list to remove the element from.
-      Raise:
-		    ValueError: If the value is not found in the list.
-      Return:
-            updated list
-  
-    </details>
 
-* *handle_pop(lst):*  Remove last element of the list if index is not specified or an element which index user entered.
+## How to Run 🏃‍♂️
 
-    <details>
-        <summary>More..</summary>
-        
-                Pop an element at a specified index or the last element if no index is provided.
-          Args:
-                list to pop the element from.
-          Raise:
-		        IndexError: If the index is out of range.
-		        ValueError: If the input index is not an integer.
-          Return:
-		        updated list
-  
-    </details>
-
-* *handle_clear(lst):* Removes all elements from a list using the clear() method.
-
-    <details>
-        <summary>More..</summary>
-
-            Clear all elements from the list.
-        Args:
-            list to clear.
-        Return:
-            None
-  
-    </details>
-
-* *handle_index(lst):* Find an index of given element.
-
-    <details>
-        <summary>More...</summary>
-
-            Find the index of a specified value in the list.
-        Args:
-            list to search for the value.
-        Raise:
-            ValueError: If the value is not found in the list.
-        Return:
-            index of value
-  
-    </details>
-
-* *handle_count(lst):* Counts the occurrences of a value in a list.
-
-    <details>
-        <summary>More...</summary>
-		
-            Count the occurrences of a specified value in the list.
-        Args:
-            list to count the occurrences of the value.
-        Return:
-            number of ooccurrencess of a value
-        
-    </details>
-
-* *handle_sort(lst):* Sorts a list.
-
-    <details>
-        <summary>More...</summary>
-
-            Sort the list.
-        Args:
-            list to sort.
-        Raises:
-		    TypeError: If the list contains elements of different data types.
-        Return:
-		    sorted list
-  
-    </details>
-
-* *handle_reverse(lst)*
-
-    <details>
-        <summary>More...</summary>
-
-            Reverse the order of elements in the list.
-        Args:
-            list to reverse.
-        Return:
-            reversed list
-  
-    </details>
-
-* *handle_copy(lst)*
-
-    <details>
-        <summary>More...</summary>
-
-            Create a copy of the list.
-        Argss:
-		    list to copy.
-	    Return:
-		    list copy
-
-    </details>
-
-* *display_list_menu():* Displays a menu of common list operations.
-
-## Installation ⚙️
-
-To use these functions, simply clone the repository and import the desired functions into your Python script.
+1. Clone the repository 🥡
+   
 ```bash
-git clone https://github.com/pgnikolov/implementing-python-data-structures.git
+git clone https://github.com/yourusername/implementing-python-data-structures.git
 cd implementing-python-data-structures
 ```
+
+2. Run the main script:
+
+```bash
+python main.py
+```
+
+3. Follow the on-screen instructions to interact with the data structures.
+
+## Example Usage
+
+Here are some examples of how to use the implemented data structures through the command-line interface:
+
+### List Operations 🎟️
+
+1. Append an element to a list:
+
+```bash
+Choose Data Structure:
+1. List
+Enter your choice (1-4): 1
+
+Enter initial list values (comma-separated): 1, 2, 3
+Choose a list operation:
+1. Append
+Enter your choice (1-12): 1
+Enter element to be appended: 4
+[1, 2, 3, 4]
+```
+
+### Dictionary Operations 📖
+
+1. Pop an element from dictionary: 
+
+```bash
+Choose Data Structure:
+2. Dictionary
+Enter key: value pair like this ("key1: value1, key2: value2"): a: 1, b: 2
+Choose option:
+1. Pop
+Enter a choice: 1
+Enter a key which you want to pop: a
+1
+```
+
+### Stack Operations 📚
+
+1. Push an element onto a stack:
+
+```bash
+Choose Data Structure:
+5. Stack
+Enter initial list values (comma-separated): 1, 2, 3
+Choose option:
+1. Push
+Enter a choice: 1
+Enter element to push: 4
+[4, 1, 2, 3]
+```
+
 ## Contributing 🤝
 Contributions are welcome! If you have any suggestions or improvements, feel free to create an issue or submit a pull request.
 
