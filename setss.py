@@ -24,10 +24,8 @@ class Sets:
             Remove an element from the set.
         Args:
             element (str): The element to be removed.
-        Raises:
-            KeyError: If the element is not found in the set.
-        Returns:
-            The updated set.
+         Returns:
+            set: The updated set or an error message if the element is not found.
         """
         try:
             self.elements.remove(element)
