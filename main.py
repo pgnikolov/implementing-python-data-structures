@@ -1,13 +1,6 @@
 from lists import Lists
 from stack import Stack
-
-
-def stack_display_menu():
-    print('1. Push')
-    print('2. Pop')
-    print('3. Peek')
-    print('4. Size')
-    print('5. Back to Main Menu')
+from dictionary import Dictionary
 
 
 def lists_display_menu():
@@ -24,29 +17,6 @@ def lists_display_menu():
     print("10. Reverse")
     print("11. Copy")
     print("12. Back to main menu")
-
-
-def stack_menu():
-    initial_values = input("Enter initial list values (comma-separated): ")
-    stack = Stack(initial_values)
-    while True:
-        stack_display_menu()
-        choice = input("Enter a choice: ")
-        if choice == '1':
-            element_push = input("Enter element to push: ")
-            print(stack.push(element_push))
-        elif choice == '2':
-            print(stack.pop())
-        elif choice == '3':
-            print(stack.peek())
-        elif choice == '4':
-            print(stack.size())
-        elif choice == '5':
-            print("Going back...")
-            main()
-            break
-        else:
-            print("Invalid choice")
 
 
 def list_menu():
@@ -94,13 +64,102 @@ def list_menu():
             print("Invalid choice. Please try again.")
 
 
+def dictionary_display_menu():
+    print('1. Pop')
+    print('2. Items')
+    print('3. Get')
+    print('4. Copy')
+    print('5. Clear')
+    print('6. Keys')
+    print('7. Values')
+    print('8. Update')
+    print('9. Popitem')
+    print('10. Set Default')
+    print('11. Back to Main Menu')
+
+
+def dictionary_menu():
+    key_values_elements = input('Enter key: value pair like this ("key1: value1, key2: value2"): ')
+    edictionary = Dictionary(key_values_elements)
+
+    while True:
+        dictionary_display_menu()
+        choice = input('Enter a choice')
+        if choice == '1':
+            key_to_pop = input('Enter a key which you want to pop: ')
+            print(edictionary.handle_pop(key_to_pop))
+        elif choice == '2':
+            print(edictionary.handle_items())
+        elif choice == '3':
+            key_to_get = input('Enter a key to get: ')
+            print(edictionary.handle_get(key_to_get))
+        elif choice == '4':
+            print(edictionary.handle_copy())
+        elif choice == '5':
+            print(edictionary.handle_clear())
+        elif choice == '6':
+            print(edictionary.handle_keys())
+        elif choice == '7':
+            print(edictionary.handle_values())
+        elif choice == '8':
+            key_values_string = input('Enter key, value pairs to update like this|("key1: value1, key2: value2") ')
+            print(edictionary.handle_update(key_values_string))
+        elif choice == '9':
+            print(edictionary.handle_popitem())
+        elif choice == '10':
+            kv_setdefault = input('Enter key-value pairs in the format "key1: value1, key2: value2":  ')
+            pairs = kv_setdefault.split(", ")
+            for pair in pairs:
+                key, value = pair.split(": ")
+                edictionary.handle_setdefault(key, value)
+            print(edictionary)
+        elif choice == '12':
+            print("Going back...")
+            main()
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+
+def stack_display_menu():
+    print('1. Push')
+    print('2. Pop')
+    print('3. Peek')
+    print('4. Size')
+    print('5. Back to Main Menu')
+
+
+def stack_menu():
+    initial_values = input("Enter initial list values (comma-separated): ")
+    stack = Stack(initial_values)
+    while True:
+        stack_display_menu()
+        choice = input("Enter a choice: ")
+        if choice == '1':
+            element_push = input("Enter element to push: ")
+            print(stack.push(element_push))
+        elif choice == '2':
+            print(stack.pop())
+        elif choice == '3':
+            print(stack.peek())
+        elif choice == '4':
+            print(stack.size())
+        elif choice == '5':
+            print("Going back...")
+            main()
+            break
+        else:
+            print("Invalid choice")
+
+
 def display_main_menu():
     print("\nChoose Data Structure:")
     print("1. List")
     print("2. Dictionary")
     print("3. Set")
     print("4. Tuple")
-    print("5. Exit")
+    print("5. Stack")
+    print("6. Exit")
 
 
 def main():
@@ -111,12 +170,16 @@ def main():
         if user_choice == '1':
             list_menu()
         elif user_choice == '2':
-            pass
+            display_main_menu()
         elif user_choice == '3':
             pass
         elif user_choice == '4':
             pass
         elif user_choice == '5':
+            stack_display_menu()
+        elif user_choice == '6':
+            pass
+        elif user_choice == '7':
             print("Exiting...!")
             break
         else:

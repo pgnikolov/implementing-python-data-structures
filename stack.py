@@ -2,18 +2,7 @@ from lists import Lists
 
 
 class Stack(Lists):
-    """
-        A class to represent a stack, inheriting from the Lists class.
-    Attributes
-        elements (list): A list to store stack elements.
-    Methods
-        push(element):
-            Inserts an element at the top of the stack.
-        pop():
-            Removes and returns the element at the top of the stack.
-        peek():
-            Returns the element at the top of the stack without removing it.
-    """
+
     def __init__(self, elements):
         """
             Constructs all the necessary attributes for the stack object.
