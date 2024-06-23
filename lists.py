@@ -14,17 +14,6 @@ class Lists:
         self.elements.append(new_element)
         return self.elements
 
-    def handle_extend(self, new_elements):
-        """
-            Extend a list by appending elements.
-        Args:
-            new_elements (list): The elements to be extended.
-        Returns:
-            The updated list.
-        """
-        self.elements.extend(new_elements)
-        return self.elements
-
     def handle_insert(self, index: int, new_element):
         """
             Insert a new element into the list at a specified index.
@@ -41,22 +30,6 @@ class Lists:
             return self.elements
         except ValueError:
             print("Invalid index. Please enter an integer.")
-
-    def handle_remove(self, element):
-        """
-            Remove an element from the list.
-        Args:
-            element (str): The element to be removed.
-        Raises:
-            ValueError: If the value is not found in the list.
-        Returns:
-            updated list
-        """
-        try:
-            self.elements.remove(element)
-            return self.elements
-        except ValueError:
-            print("Value not found in the list.")
 
     def handle_pop(self, index=None):
         """
@@ -78,6 +51,38 @@ class Lists:
         except (ValueError, IndexError):
             print("Invalid index. Please enter an integer.")
 
+    @staticmethod
+    def handle_extend(self, new_elements):
+        """
+            Extend a list by appending elements.
+        Args:
+            self:
+            new_elements (list): The elements to be extended.
+        Returns:
+            The updated list.
+        """
+        self.elements.extend(new_elements)
+        return self.elements
+
+    @staticmethod
+    def handle_remove(self, element):
+        """
+            Remove an element from the list.
+        Args:
+            self:
+            element (str): The element to be removed.
+        Raises:
+            ValueError: If the value is not found in the list.
+        Returns:
+            updated list
+        """
+        try:
+            self.elements.remove(element)
+            return self.elements
+        except ValueError:
+            print("Value not found in the list.")
+
+    @staticmethod
     def handle_clear(self):
         """
             Clear all elements from the list.
@@ -90,10 +95,12 @@ class Lists:
         if not self.elements:
             print("Empty list.")
 
+    @staticmethod
     def handle_index(self, element):
         """
             Find the index of a specified value in the list.
         Args:
+            self:
             element (str): The element which index we want to be found.
         Raises:
             ValueError: If the value is not found in the list.
@@ -106,10 +113,12 @@ class Lists:
         except ValueError:
             print("Value not found in the list.")
 
+    @staticmethod
     def handle_count(self, element):
         """
             Count the occurrences of a specified value in the list.
         Args:
+            self:
             element (str): The element which index we want to count.
         Returns:
             number of ooccurrencess of a value
@@ -117,6 +126,7 @@ class Lists:
         count = self.elements.count(element)
         return f"The count of {element} is {count}."
 
+    @staticmethod
     def handle_sort(self):
         """
             Sort the list.
@@ -131,6 +141,7 @@ class Lists:
         except TypeError:
             print("Cannot sort a list with different data types.")
 
+    @staticmethod
     def handle_reverse(self):
         """
             Reverse the order of elements in the list.
@@ -140,6 +151,7 @@ class Lists:
         self.elements.reverse()
         return f'Reversed list:", {self.elements}'
 
+    @staticmethod
     def handle_copy(self):
         """
             Create a copy of the list.

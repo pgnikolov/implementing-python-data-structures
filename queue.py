@@ -74,4 +74,3 @@ class Queue(Lists):
             self.elements = self.elements[steps:] + self.elements[:steps]
 
         return self.elements
-
