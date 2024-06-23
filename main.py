@@ -2,6 +2,7 @@ from lists import Lists
 from stack import Stack
 from dictionary import Dictionary
 from setss import Sets
+from tuples import Tuples
 
 
 def lists_display_menu():
@@ -213,6 +214,34 @@ def sets_menu():
             values_sym_difference = input('Enter values for symmetric difference (comma-separated): ')
             print(elements.handle_difference(values_sym_difference))
         elif choice == '13':
+            print("Going back...")
+            main()
+            break
+        else:
+            print("Invalid choice")
+
+
+def display_tuple_menu():
+    print('Choose Option:')
+    print('1. Count')
+    print('2. Index')
+    print('3. Back to Main Menu')
+
+
+def tuple_menu():
+    initial_values = input("Enter initial list values (comma-separated): ")
+    tup = Tuples(initial_values)
+
+    while True:
+        display_tuple_menu()
+        choice = input("Enter a choice: ")
+        if choice == '1':
+            element_to_count = input("Enter element to count: ")
+            print(tup.handle_count(element_to_count))
+        elif choice == '2':
+            element_to_index = input("Enter element to index: ")
+            print(tup.handle_index(element_to_index))
+        elif choice == '3':
             print("Going back...")
             main()
             break
