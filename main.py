@@ -1,10 +1,12 @@
 from lists import Lists
 from stack import Stack
 from dictionary import Dictionary
+from setss import Sets
 
 
 def lists_display_menu():
     print("\nChoose a list operation:")
+    print('\n Choose option:')
     print("1. Append")
     print("2. Extend")
     print("3. Insert")
@@ -65,6 +67,7 @@ def list_menu():
 
 
 def dictionary_display_menu():
+    print('\n Choose option:')
     print('1. Pop')
     print('2. Items')
     print('3. Get')
@@ -122,6 +125,7 @@ def dictionary_menu():
 
 
 def stack_display_menu():
+    print('\n Choose option:')
     print('1. Push')
     print('2. Pop')
     print('3. Peek')
@@ -145,6 +149,70 @@ def stack_menu():
         elif choice == '4':
             print(stack.size())
         elif choice == '5':
+            print("Going back...")
+            main()
+            break
+        else:
+            print("Invalid choice")
+
+
+def display_sets_menu():
+    print('\n Choose option:')
+    print('1. Add')
+    print('2. Remove')
+    print('3. Discard')
+    print('4. Pop')
+    print('5. Clear')
+    print('6. Union')
+    print('7. Intersection')
+    print('8. Difference')
+    print('9. Copy')
+    print('10. Is Super Set')
+    print('11. Is Sub Set')
+    print('12. Symmetric Difference')
+    print('13. Back to Main Menu')
+
+
+def sets_menu():
+    set_values = input("Enter initial list values (comma-separated): ")
+    elements = Sets(set_values)
+    while True:
+        stack_display_menu()
+        choice = input()
+        if choice == '1':
+            new_element = input('Enter new element to add: ')
+            print(elements.handle_add(new_element))
+        elif choice == '2':
+            element_to_remove = input('Enter element to remove: ')
+            print(elements.handle_remove(element_to_remove))
+        elif choice == '3':
+            element_to_discard = input('Enter element to discard: ')
+            print(elements.handle_discard(element_to_discard))
+        elif choice == '4':
+            print(elements.handle_pop())
+        elif choice == '5':
+            print(elements.handle_clear())
+        elif choice == '6':
+            values_for_union = input('Enter values for union (comma-separated): ')
+            print(elements.handle_union(values_for_union))
+        elif choice == '7':
+            intersection_values = input('Enter values for intersection (comma-separated): ')
+            print(elements.handle_intersection(intersection_values))
+        elif choice == '8':
+            values_difference = input('Enter values for difference (comma-separated): ')
+            print(elements.handle_difference(values_difference))
+        elif choice == '9':
+            print(elements.handle_copy())
+        elif choice == '10':
+            values_for_issuperset = input('Enter values for issuperset (comma-separated): ')
+            print(elements.handle_union(values_for_issuperset))
+        elif choice == '11':
+            values_for_issubset = input('Enter values for issubset (comma-separated): ')
+            print(elements.handle_difference(values_for_issubset))
+        elif choice == '12':
+            values_sym_difference = input('Enter values for symmetric difference (comma-separated): ')
+            print(elements.handle_difference(values_sym_difference))
+        elif choice == '13':
             print("Going back...")
             main()
             break
