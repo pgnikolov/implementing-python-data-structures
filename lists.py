@@ -18,7 +18,7 @@ class Lists:
         """
             Extend a list by appending elements.
         Args:
-            new_elements (str): The elements to be extended.
+            new_elements (list): The elements to be extended.
         Returns:
             The updated list.
         """
